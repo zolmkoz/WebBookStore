@@ -16,8 +16,15 @@ Manage Users
 <br>
 Report admin
 <br>
+
+<ul>
+        <li>Log in sign up</li>
+        <li>CRUD product, cate</li>
+        <li>Book Details</li>
+        <li>Manage Users</li>
+        <li>Report admin</li>
+</ul>
   
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](<%= issuesUrl %>). <%= contributingUrl ? `You can also take a look at the [contributing guide](${contributingUrl}).` : '' %>
-<% } -%>
+Contributions, bug issues, and new feature requests are all welcome!
