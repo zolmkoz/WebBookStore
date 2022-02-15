@@ -22,15 +22,32 @@ namespace WebBookStore.Controllers
             var sachmoi = Laysachmoi(5);
             return View(sachmoi);
         }
-        public ActionResult Topic()
+        public ActionResult Chude()
         {
             var chude = from cd in data.ChuDes select cd;
             return PartialView(chude);
         }
-        public ActionResult Publishingcompany()
+        public ActionResult Nhaxuatban()
         {
             var nhaxuatban = from cd in data.NhaXuatBans select cd;
             return PartialView(nhaxuatban);
         }
+        public ActionResult SPTheochude(int id)
+        {
+            var sach = from s in data.Saches where s.MaCD == id select s;
+            return View(sach);
+        }
+        public ActionResult SPTheoNXB(int id)
+        {
+            var sach = from s in data.Saches where s.MaNXB == id select s;
+            return View(sach);
+        }
+        public ActionResult Details(int id)
+        {
+            var sach = from s in data.Saches where s.MaSach == id select s;
+            return View(sach.Single());
+        }
+
+
     }
 }

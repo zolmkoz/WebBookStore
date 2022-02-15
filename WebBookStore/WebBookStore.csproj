@@ -290,8 +290,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\BookStore\Index.cshtml" />
-    <Content Include="Views\BookStore\Topic.cshtml" />
-    <Content Include="Views\BookStore\Publishingcompany.cshtml" />
+    <Content Include="Views\BookStore\Chude.cshtml" />
+    <Content Include="Views\BookStore\Nhaxuatban.cshtml" />
+    <Content Include="Views\BookStore\SPTheochude.cshtml" />
+    <Content Include="Views\BookStore\SPTheoNXB.cshtml" />
+    <Content Include="Views\BookStore\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
