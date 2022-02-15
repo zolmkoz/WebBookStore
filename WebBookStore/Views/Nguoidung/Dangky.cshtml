@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Dangky";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<table align="center">
+    <h2 align="center">REGISTER MEMBER</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td>
+                Fullname:
+            </td>
+            <td>
+                @Html.TextBox("HotenHK")
+                @ViewData["Loi1"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>
+                User:
+            </td>
+            <td>
+                @Html.TextBox("TenDN")
+                @ViewData["Loi2"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>
+                Password:
+            </td>
+            <td>
+                @Html.Password("Matkhau")
+                @ViewData["Loi3"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>
+                Confirm Password:
+            </td>
+            <td>
+                @Html.Password("Matkhaunhaplai")
+                @ViewData["Loi4"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>
+                Email:
+            </td>
+            <td>
+                @Html.TextBox("Email")
+                @ViewData["Loi5"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>
+                Phone:
+            </td>
+            <td>
+                @Html.TextBox("Dienthoai")
+                @ViewData["Loi6"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>
+                Address:
+            </td>
+            <td>
+                @Html.TextBox("Diachi")
+                @ViewData["Loi7"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>
+                Birthday:
+            </td>
+            <td>
+                <input type="date" name="Ngaysinh" />
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>
+            </td>
+            <td>
+                <input type="submit" value="Register" />
+            </td>
+        </tr>
+    }
+
+</table>
+
