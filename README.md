@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to <%= FPTBook %> 👋</h1>
+<h1 align="center">Welcome to FPTBook  👋</h1>
 <p>
 <% if (isProjectOnNpm) { -%>
   <a href="https://www.npmjs.com/package/<%= projectName %>" target="_blank">
@@ -12,3 +12,8 @@ CRUD product, cate
 Book Details
 Manage Users
 Report admin
+  
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](<%= issuesUrl %>). <%= contributingUrl ? `You can also take a look at the [contributing guide](${contributingUrl}).` : '' %>
+<% } -%>
