@@ -1,0 +1,10 @@
+﻿@model IEnumerable<WebBookStore.Models.ChuDe>
+<p class="lead">TOPIC</p>
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+    <a href="@Url.Action("Topic", "BookStore", new { id = item.MaCD})" class="list-group-item">      
+        @item.TenChuDe
+    </a>
+    }
+</div>
