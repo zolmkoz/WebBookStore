@@ -1,17 +1,21 @@
 <h1 align="center">Welcome to FPTBook  👋</h1>
-<p>
-<% if (isProjectOnNpm) { -%>
-  <a href="https://www.npmjs.com/package/<%= projectName %>" target="_blank">
-    <img alt="Version" src="https://img.shields.io/npm/v/<%= projectName %>.svg">
-  </a>
+
 E-commerce web application specializing in selling books of FPTBooks bookstore system
+<br>
 The system includes the following basic functions:
+<br>
 Log in sign up
+<br>
 Cart
+<br>
 CRUD product, cate
+<br>
 Book Details
+<br>
 Manage Users
+<br>
 Report admin
+<br>
   
 ## 🤝 Contributing
 
