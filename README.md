@@ -28,4 +28,4 @@ Contributions, bug issues, and new feature requests are all welcome!
 ## 📝 License
 
 This project is <a href="https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE">MIT</a> licensed.
-<a href="https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE">MIT</a>
+
