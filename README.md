@@ -24,3 +24,11 @@ The system includes the following basic functions:
 ## 🤝 Contributing
 
 Contributions, bug issues, and new feature requests are all welcome!
+
+## 📝 License
+
+<% if (authorName && authorGithubUsername) { -%>
+Copyright © <%= currentYear %> [<%= authorName %>](https://github.com/<%= authorGithubUsername %>).<br />
+<% } -%>
+This project is [<%= licenseName %>](<%= licenseUrl %>) licensed.
+<% } -%>
