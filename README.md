@@ -4,19 +4,6 @@ E-commerce web application specializing in selling books of FPTBooks bookstore s
 <br>
 The system includes the following basic functions:
 <br>
-Log in sign up
-<br>
-Cart
-<br>
-CRUD product, cate
-<br>
-Book Details
-<br>
-Manage Users
-<br>
-Report admin
-<br>
-
 <ul>
         <li>Log in sign up</li>
         <li>CRUD product, cate</li>
