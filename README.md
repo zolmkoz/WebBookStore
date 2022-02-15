@@ -27,4 +27,5 @@ Contributions, bug issues, and new feature requests are all welcome!
 
 ## 📝 License
 
-This project is MIT (<%= https://github.com/zolmkoz/WebBookStore/blob/cf827fb1f8ce7d5b5ed48376aba3efb615ddb891/LICENSE %>) licensed.
+This project is <a href="https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE">MIT</a> licensed.
+<a href="https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE">MIT</a>
