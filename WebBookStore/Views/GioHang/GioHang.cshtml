@@ -14,8 +14,9 @@
         <td> Quantity </td>
         <td> Price </td>
         <td> Total </td>
-        <td></td>
-        <td></td>
+        <td width="50px"></td>
+        <td width="50px"></td>
+        <td width="50px"></td>
     </tr>
     @foreach (var item in Model)
     {
@@ -23,17 +24,30 @@
             <td>@item.iMaSach</td>
             <td>@item.sTenSach</td>
             <td><img width="70px" src="~/product_imgs/@item.sAnhBia"</td>
-            <td>@item.iSoLuong</td>
-            <td>@String.Format("{0:0,0}" ,item.dDonGia)</td>
-            <td>@String.Format("{0:0,0}" ,item.dThanhTien)</td>
-            <td> <a href="@Url.Action("Details", "BookStore", new { id=item.iMaSach})">Details</a></td>
-            <td> @Html.ActionLink("Delete", "XoaGiohang", new { @iMaSp = item.iMaSach})</td>
+            @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { @iMaSP = item.iMaSach }))
+            {
+                <td>
+                    <input type="number" min="1" name="txtSoluong" value="@item.iSoLuong" style="background-color:#00FF55" />
+                </td>
+                <td>@item.iSoLuong</td>
+                <td>@String.Format("{0:0,0}", item.dDonGia)</td>
+                <td>@String.Format("{0:0,0}", item.dThanhTien)</td>
+                <td> <a href="@Url.Action("Details", "BookStore", new { id=item.iMaSach})">Details</a></td>
+                <td> @Html.ActionLink("Delete", "XoaGiohang", new { @iMaSp = item.iMaSach })</td>
+                <td><input type="submit" value="Update" /></td>
+            }
+
         </tr>
     }
 
-    <tr style="text-align:center; font-weight:bold; color:red">
+    <tr style="text-align:right; font-weight:bold; color:red">
         <td colspan="4">Total quantily: @ViewBag.Tongsoluong </td>
-        <td colspan="5">Total price: @String.Format("{0:0,0}", ViewBag.Tongtien) USD</td>
+        <td colspan="6">Total price: @String.Format("{0:0,0}", ViewBag.Tongtien) USD</td>
+    </tr>
+    <tr style="font-weight: bold; color:blue; text-align:right" >
+        <td colspan="10">
+            @Html.ActionLink("Clear Cart", "XoaTatcaGiohang")
+        </td>
     </tr>
 </table>
 
