@@ -41,13 +41,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
+                        @Html.ActionLink("HOMEPAGE", "Index", "BookStore")
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        @Html.ActionLink("REGISTER", "Dangky", "Nguoidung")
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        @Html.ActionLink("LOGIN", "Dangnhap", "Nguoidung")
+                    </li>
+                    <li>
+                        @Html.Action("GiohangPartial", "GioHang")
                     </li>
                 </ul>
             </div>

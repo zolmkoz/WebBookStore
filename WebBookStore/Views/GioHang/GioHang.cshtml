@@ -1,0 +1,39 @@
+﻿@using WebBookStore.Models
+@model List<Giohang>
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2 style="text-align:center">CARD DETAILS</h2>
+<table border="1" align="center">
+    <tr style="text-align:center; font-weight:bold">
+        <td> Book ID </td>
+        <td> Title </td>
+        <td> Book cover </td>
+        <td> Quantity </td>
+        <td> Price </td>
+        <td> Total </td>
+        <td></td>
+        <td></td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="text-align:center; font-weight:bold">
+            <td>@item.iMaSach</td>
+            <td>@item.sTenSach</td>
+            <td style="width:40px"><img src="~/product_imgs/@item.sAnhBia"</td>
+            <td>@item.iSoLuong</td>
+            <td>@String.Format("{0:0,0}" ,item.dDonGia)</td>
+            <td>@String.Format("{0:0,0}" ,item.dThanhTien)</td>
+            <td> <a href="@Url.Action("Details", "BookStore", new { id=item.iMaSach})">Details</a></td>
+            <td> @Html.ActionLink("Delete", "XoaGiohang", new { @iMaSp = item.iMaSach})</td>
+        </tr>
+    }
+
+    <tr style="text-align:center; font-weight:bold; color:red">
+        <td colspan="4">Total quantily: @ViewBag.Tongsoluong </td>
+        <td colspan="4">Total price: @String.Format("{0:0,0}", ViewBag.Tongtien) USD</td>
+    </tr>
+</table>
+

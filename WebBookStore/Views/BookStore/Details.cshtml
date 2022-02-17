@@ -15,7 +15,8 @@
         font-weight: bold;
         float: right;
     }
-.dathang:hover {
+
+     .dathang:hover {
             box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
         }
 </style>
@@ -30,7 +31,7 @@
 
 <div class="col-sm-6 col-lg-6 col-md-6">
     <div>
-          <img alt="@Model.TenSach" width="100%" src="~/product_imgs/@Model.AnhBia" />       
+        <img alt="@Model.TenSach" width="100%" src="~/product_imgs/@Model.AnhBia" />
     </div>
 </div>
 
@@ -38,13 +39,14 @@
     <div>
         <p style="color:#ff0000; font-size:25px"> DESCRIPTION: </p>
         <p style="text-align:justify"> @Model.MoTa  </p>
-</div>
+    </div>
     <div>
         <p style="color:#ff0000; font-size:25px"> PRICE: @Model.GiaBan USD   </p>
-        
+
     </div>
     <div class="dathang">
-        <a style="color: crimson " href="@Url.Action("AddTocard", "ShoppingCard", new {id = Model.MaSach })">ORDER NOW</a>
+        <a style="color: crimson " 
+           href="@Url.Action("ThemGioHang", "GioHang", 
+                new {@iMaSach= @Model.MaSach, @strURL=Request.Url.ToString() })">ORDER NOW</a>
     </div>
 </div>
-
