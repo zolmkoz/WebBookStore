@@ -6,7 +6,7 @@
 }
 
 <h2 style="text-align:center">CARD DETAILS</h2>
-<table border="1" align="center">
+<table border="1" align="center" width="100%">
     <tr style="text-align:center; font-weight:bold">
         <td> Book ID </td>
         <td> Title </td>
@@ -22,7 +22,7 @@
         <tr style="text-align:center; font-weight:bold">
             <td>@item.iMaSach</td>
             <td>@item.sTenSach</td>
-            <td style="width:40px"><img src="~/product_imgs/@item.sAnhBia"</td>
+            <td><img width="70px" src="~/product_imgs/@item.sAnhBia"</td>
             <td>@item.iSoLuong</td>
             <td>@String.Format("{0:0,0}" ,item.dDonGia)</td>
             <td>@String.Format("{0:0,0}" ,item.dThanhTien)</td>
@@ -33,7 +33,7 @@
 
     <tr style="text-align:center; font-weight:bold; color:red">
         <td colspan="4">Total quantily: @ViewBag.Tongsoluong </td>
-        <td colspan="4">Total price: @String.Format("{0:0,0}", ViewBag.Tongtien) USD</td>
+        <td colspan="5">Total price: @String.Format("{0:0,0}", ViewBag.Tongtien) USD</td>
     </tr>
 </table>
 
