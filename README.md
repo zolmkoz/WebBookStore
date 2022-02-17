@@ -8,6 +8,7 @@ The system includes the following basic functions:
         <li>Log in sign up</li>
         <li>CRUD product, cate</li>
         <li>Book Details</li>
+        <li>Shopping Card</li>
         <li>Manage Users</li>
         <li>Report admin</li>
 </ul>
