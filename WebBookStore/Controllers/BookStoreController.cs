@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebBookStore.Models;
-//using PagedList;
-//using PagedList.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace WebBookStore.Controllers
 {
@@ -15,19 +15,19 @@ namespace WebBookStore.Controllers
         dbQLBookstoreDataContext data = new dbQLBookstoreDataContext();
         private List<Sach> Laysachmoi(int count)
         {
-            //Sắp xếp
+            //Arrange
             return data.Saches.OrderByDescending(a => a.NgayCapNhat).Take(count).ToList();
         }
         // GET: BookStore
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             //Create a variable that specifies the number of products per page
-            //int pageSize = 10;
+            int pageSize = 3;
             //Create page variable
-           // int pageNum = (page ?? 1);
+            int pageNum = (page ?? 1);
             //Get the top 10 best-selling albums
-            var sachmoi = Laysachmoi(50);
-            return View(sachmoi);
+            var sachmoi = Laysachmoi(5);
+            return View(sachmoi.ToPagedList(pageNum,pageSize));
         }
         public ActionResult Chude()
         {

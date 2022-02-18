@@ -1,16 +1,18 @@
-﻿@model IEnumerable<WebBookStore.Models.Sach>
+﻿@*@model IEnumerable<WebBookStore.Models.Sach>*@
+@using WebBookStore.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<Sach>
 @{
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
-<h2>HOME PAGE</h2>
+<h3 style="text-align:center; color:red">NEW BOOK</h3>
 <div class="row">
     @foreach (var sach in Model)
     {
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
-                <li>
                     <a href="@Url.Action("Details", "BookStore", new {id = sach.MaSach})">
                         <img alt="@sach.TenSach" src="~/product_imgs/@sach.AnhBia" />
                         <span>@sach.TenSach</span>
@@ -25,9 +27,19 @@
                             <span class="glyphicon glyphicon-star"></span>
                         </p>
                     </div>
-                </li>
             </div>
         </div>
     }
 </div>
+@*Tạo trang liên kết*@
+Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+<div class="Menupage">
+    @Html.PagedListPager(Model,page=>Url.Action("Index", new {page=page}))
+</div>
+
+<style>
+    .Menupage li{
+        display:inline;
+    }
+</style>
 
