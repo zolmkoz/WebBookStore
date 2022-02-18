@@ -14,12 +14,12 @@ namespace WebBookStore.Controllers
         // GET: Giohang
         public List<Giohang> LayGioHang()
         {
-            List<Giohang> lstGiohang = Session["Giohang"] as List<Giohang>;
+            List<Giohang> lstGiohang = Session["GioHang"] as List<Giohang>;
             //Nếu tồn tại, gán vào Cart
             if (lstGiohang == null)
             {
                 lstGiohang = new List<Giohang>();
-                Session["Giohang"] = lstGiohang;
+                Session["GioHang"] = lstGiohang;
             }
             return lstGiohang;
         }
@@ -46,7 +46,7 @@ namespace WebBookStore.Controllers
         public int TongSoLuong()
         {
             int iTongSoLuong = 0;
-            List<Giohang> lstGiohang = Session["Giohang"] as List<Giohang>;
+            List<Giohang> lstGiohang = Session["GioHang"] as List<Giohang>;
             if (lstGiohang != null)
             {
                 iTongSoLuong = lstGiohang.Sum(n => n.iSoLuong);
@@ -57,7 +57,7 @@ namespace WebBookStore.Controllers
         public double TongTien()
         {
             double iTongTien = 0;
-            List<Giohang> lstGiohang = Session["Giohang"] as List<Giohang>;
+            List<Giohang> lstGiohang = Session["GioHang"] as List<Giohang>;
             if (lstGiohang != null)
             {
                 iTongTien = lstGiohang.Sum(n => n.dThanhTien);
@@ -126,6 +126,60 @@ namespace WebBookStore.Controllers
             List<Giohang> lstGiohang = LayGioHang();
             lstGiohang.Clear();
             return RedirectToAction("Index", "BookStore");
+        }
+
+        //Order Cart
+        [HttpGet]
+        public ActionResult DatHang()
+        {
+            //Check login
+            if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
+            {
+                return RedirectToAction("Dangnhap", "Nguoidung");
+            }
+            if (Session["GioHang"] == null)
+            {
+                return RedirectToAction("Index", "BookStore");
+            }
+
+            //Get card from session
+            List<Giohang> lstGiohang = LayGioHang();
+            ViewBag.Tongsoluong = TongSoLuong();
+            ViewBag.Tongtien = TongTien();
+            return View(lstGiohang);
+        }
+
+        public ActionResult DatHang(FormCollection collection)
+        {
+            //Add order
+            DonDatHang ddh = new DonDatHang();
+            KhachHang kh = (KhachHang)Session["Taikhoan"];
+            List<Giohang> gh = LayGioHang();
+            ddh.MaKH = kh.MaKH;
+            ddh.NgayDH = DateTime.Now;
+            var ngaygiao = String.Format("{0:MM/dd/yyyy}", collection["NgayGiao"]);
+            ddh.NgayGiao = DateTime.Parse(ngaygiao);
+            ddh.TinhTrangGiaoHang = false;
+            ddh.DaThanhToan = false;
+            data.DonDatHangs.InsertOnSubmit(ddh);
+            data.SubmitChanges();
+            //Add order detail
+            foreach (var item in gh)
+            {
+                ChiTietDatHang ctdh = new ChiTietDatHang();
+                ctdh.SoDH = ddh.SoDH;
+                ctdh.MaSach = item.iMaSach;
+                ctdh.SoLuong = item.iSoLuong;
+                ctdh.DonGia = (decimal)item.dDonGia;
+                data.ChiTietDatHangs.InsertOnSubmit(ctdh);
+            }
+            data.SubmitChanges();
+            Session["GioHang"] = null;
+            return RedirectToAction("Xacnhandonhang", "GioHang");
+        }
+        public ActionResult Xacnhandonhang()
+        {
+            return View();
         }
     }
 }

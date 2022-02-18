@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebBookStore.Models;
+//using PagedList;
+//using PagedList.Mvc;
 
 namespace WebBookStore.Controllers
 {
@@ -19,7 +21,12 @@ namespace WebBookStore.Controllers
         // GET: BookStore
         public ActionResult Index()
         {
-            var sachmoi = Laysachmoi(5);
+            //Create a variable that specifies the number of products per page
+            //int pageSize = 10;
+            //Create page variable
+           // int pageNum = (page ?? 1);
+            //Get the top 10 best-selling albums
+            var sachmoi = Laysachmoi(50);
             return View(sachmoi);
         }
         public ActionResult Chude()

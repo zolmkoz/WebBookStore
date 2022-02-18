@@ -1,0 +1,83 @@
+﻿@using WebBookStore.Models
+@model List<Giohang>
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2 style="text-align:center">ORDER DETAILS</h2>
+<table align="center" border="1">
+    <tr style="text-align:center; font-weight:bold">
+        <td> Book ID </td>
+        <td> Title </td>
+        <td> Preview </td>
+        <td> Quantity </td>
+        <td> Price </td>
+        <td> Total </td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="text-align:center; font-weight:bold" >
+            <td> @item.iMaSach </td>
+            <td> @item.sTenSach </td>
+            <td> <img src="~/product_imgs/@item.sAnhBia"/></td>
+            @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { @iMaSP = item.iMaSach }))
+            {
+                 <td>
+                        @item.iSoLuong
+                 </td>
+                 <td>@String.Format("{0:0,0}", item.dDonGia)</td>
+                 <td>@String.Format("{0:0,0}", item.dThanhTien)</td>
+            }
+        </tr>
+    }
+    <tr style="text-align:right; font-weight:bold; color:red" >
+         <td colspan="3"> Quantity: @ViewBag.Tongsoluong</td>
+         <td colspan="3"> Total : @String.Format("{0:0,0}", ViewBag.Tongtien) USD</td>
+    </tr>
+    <tr style="text-align:right; font-weight:bold; color:blue" >
+         <td colspan="6">
+                @Html.ActionLink("BACK CART", "GioHang", "GioHang")
+         </td>
+    </tr>
+</table>
+
+<h2 style="text-align:center">ORDER INFORMATION</h2>
+@{ 
+    KhachHang kh = (KhachHang)Session["Taikhoan"];
+}
+<table align="center">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td> Fullname: </td>
+            <td style="font-weight:bold"> @kh.HoTen </td>
+        </tr>
+        <tr style="height:40px">
+            <td> Address: </td>
+            <td style="font-weight:bold"> @kh.DiachiKH </td>
+        </tr>
+        <tr style="height:40px">
+            <td> Phone: </td>
+            <td style="font-weight:bold"> @kh.DienThoaiKH </td>
+        </tr>
+        <tr style="height:40px">
+            <td> Order date: </td>
+            <td style="font-weight:bold"> @DateTime.Now.ToShortDateString() </td>
+        </tr>
+        <tr style="height:40px">
+            <td> Delivery date: </td>
+            <td style="font-weight:bold">
+                <input type="date" name="NgayGiao" />
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td></td>
+            <td>
+                <input type="submit" value="AGREE ORDER" />
+            </td>
+        </tr>
+    }
+</table>
+

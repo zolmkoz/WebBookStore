@@ -1,7 +1,7 @@
 ﻿@using WebBookStore.Models
 @model List<Giohang>
 @{
-    ViewBag.Title = "GioHang";
+    ViewBag.Title = "Cart";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
@@ -10,7 +10,7 @@
     <tr style="text-align:center; font-weight:bold">
         <td> Book ID </td>
         <td> Title </td>
-        <td> Book cover </td>
+        <td> Preview </td>
         <td> Quantity </td>
         <td> Price </td>
         <td> Total </td>
@@ -32,8 +32,8 @@
                 <td>@item.iSoLuong</td>
                 <td>@String.Format("{0:0,0}", item.dDonGia)</td>
                 <td>@String.Format("{0:0,0}", item.dThanhTien)</td>
-                <td> <a href="@Url.Action("Details", "BookStore", new { id=item.iMaSach})">Details</a></td>
-                <td> @Html.ActionLink("Delete", "XoaGiohang", new { @iMaSp = item.iMaSach })</td>
+                <td> <a href="@Url.Action("Details", "BookStore", new { id = item.iMaSach })">Details</a></td>
+                <td> @Html.ActionLink("Delete", "XoaGiohang", new { @iMaSP = item.iMaSach })</td>
                 <td><input type="submit" value="Update" /></td>
             }
 
@@ -44,9 +44,14 @@
         <td colspan="4">Total quantily: @ViewBag.Tongsoluong </td>
         <td colspan="6">Total price: @String.Format("{0:0,0}", ViewBag.Tongtien) USD</td>
     </tr>
-    <tr style="font-weight: bold; color:blue; text-align:right" >
+    <tr style="font-weight: bold; color:blue; text-align:right">
         <td colspan="10">
-            @Html.ActionLink("Clear Cart", "XoaTatcaGiohang")
+            @Html.ActionLink("Clear", "XoaTatcaGiohang")
+        </td>
+    </tr>
+    <tr style="text-align:right; font-weight:bold; color:blue">
+        <td colspan="10" align="center">
+            @Html.ActionLink("ORDER NOW", "DatHang", "GioHang")
         </td>
     </tr>
 </table>

@@ -30,12 +30,12 @@ namespace WebBookStore.Controllers
             //Gán giá trị vào form
             var fullname = collection["HotenHK"];
             var user = collection["TenDN"];
-            var password = collection["Matkhau"];
+            var password = collection["MatKhau"];
             var confirmpassword = collection["Matkhaunhaplai"];
             var email = collection["Email"];
-            var address = collection["Diachi"];
-            var phone = collection["Dienthoai"];
-            var birthday = String.Format("{0:MM/dd/yyyy}", collection["Ngaysinh"]);
+            var address = collection["DiaChi"];
+            var phone = collection["DienThoai"];
+            var birthday = String.Format("{0:MM/dd/yyyy}", collection["NgaySinh"]);
             if(String.IsNullOrEmpty(fullname))
             {
                 ViewData["Loi1"] = "Customer's name cannot empty";
@@ -89,7 +89,7 @@ namespace WebBookStore.Controllers
         public ActionResult Dangnhap(FormCollection collection)
         {
             var user = collection["TenDN"];
-            var password = collection["Matkhau"];
+            var password = collection["MatKhau"];
             if (String.IsNullOrEmpty(user))
             {
                 ViewData["Loi1"] = "The account cannot be empty";
@@ -106,6 +106,7 @@ namespace WebBookStore.Controllers
                 {
                     ViewBag.ThongBao = "Login successful!";
                     Session["TaiKhoan"] = kh;
+                    return RedirectToAction("Index", "BookStore");
                 }
                 else
                     ViewBag.ThongBao = "User or password is incorrect!";               
