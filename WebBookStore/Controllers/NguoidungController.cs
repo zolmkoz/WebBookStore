@@ -9,7 +9,7 @@ namespace WebBookStore.Controllers
 {
     public class NguoidungController : Controller
     {
-        //Tạo 1 đối tượng để quản lý CSDL
+        //Create objects to manage Database
         dbQLBookstoreDataContext db = new dbQLBookstoreDataContext();
         // GET: Nguoidung
         public ActionResult Index()
