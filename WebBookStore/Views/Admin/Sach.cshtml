@@ -1,0 +1,103 @@
+﻿@using WebBookStore.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<WebBookStore.Models.Sach>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+@{
+    ViewBag.Title = "Admintrator";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>MANAGEMENT OF BOOK INFORMATION</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TenSach)
+        </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().GiaBan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().MoTa)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.First().AnhBia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().NgayCapNhat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().SoLuongTon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().MaCD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().MaNXB)
+            </th>
+            <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaBan)
+            </td>
+            <td>
+                @Truncate(item.MoTa, 100)
+            </td>
+            <td>
+                <img style="max-height: 150px" src="@Url.Content("~/product_imgs/"+ item.AnhBia)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayCapNhat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuongTon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChuDe.TenChuDe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NhaXuatBan.TenNXB)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaSach }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaSach }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaSach })
+            </td>
+        </tr>
+    }
+</table>
+@*Create linked paged*@
+Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+<div class="Menupage">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
+
+<style>
+    .Menupage li {
+        display: inline;
+    }
+</style>
+
