@@ -1,0 +1,97 @@
+﻿@model WebBookStore.Models.Sach
+
+@{
+    ViewBag.Title = "Suasach";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Suasach</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.MaSach)
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaSach, new { @class = "Control-label col-md-2" })
+            <div class="col-md-10">
+                <div style="font:18px; padding: 5px 0 0 5px">@Model.MaSach</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenSach, new { @class = "Control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenSach)
+                @Html.ValidationMessageFor(model => model.TenSach)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GiaBan, new { @class = "Control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GiaBan)
+                @Html.ValidationMessageFor(model => model.GiaBan)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MoTa, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <textarea name="MoTa">Mô tả của sản phẩm</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AnhBia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="fileupload" />
+                <img src="@Url.Content("/product_imgs/"+ Model.AnhBia)" width="120px" />
+                @ViewBag.Thongbao
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NgayCapNhat, new { @class = "Control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NgayCapNhat)
+                @Html.ValidationMessageFor(model => model.NgayCapNhat)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SoLuongTon, new { @class = "Control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SoLuongTon)
+                @Html.ValidationMessageFor(model => model.SoLuongTon)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaNXB, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MaNXB")
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaCD, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MaCD")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Sach")
+</div>

@@ -22,36 +22,19 @@
 <h2>MANAGEMENT OF BOOK INFORMATION</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "ThemmoiSach")
 </p>
-<table class="table">
+<table class="table" border="1">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.First().TenSach)
-        </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().GiaBan)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().MoTa)
-            </th>
-
-            <th>
-                @Html.DisplayNameFor(model => model.First().AnhBia)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().NgayCapNhat)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().SoLuongTon)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().MaCD)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().MaNXB)
-            </th>
-            <th></th>
+        <th style="width:200px; text-align:center"> Title </th>
+        <th style="width:100px; text-align:center"> Price </th>
+        <th style="width:300px; text-align:center"> Discription </th>
+        <th style="width:150px; text-align:center"> Image </th>
+        <th style="width:100px; text-align:center"> Update </th>
+        <th style="width:120px; text-align:center"> Quantity </th>
+        <th style="width:100px; text-align:center"> Topic </th>
+        <th style="width:200px; text-align:center"> Publishing </th>
+        <th style="width:300px; text-align:center">  </th>
     </tr>
 
     @foreach (var item in Model)
@@ -82,9 +65,9 @@
                 @Html.DisplayFor(modelItem => item.NhaXuatBan.TenNXB)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaSach }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MaSach }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MaSach })
+                @Html.ActionLink("Edit", "Suasach", new { id = item.MaSach }) |
+                @Html.ActionLink("Details", "Chitietsach", new { id = item.MaSach }) |
+                @Html.ActionLink("Delete", "Xoasach", new { id = item.MaSach })
             </td>
         </tr>
     }

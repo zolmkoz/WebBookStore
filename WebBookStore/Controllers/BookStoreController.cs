@@ -22,7 +22,7 @@ namespace WebBookStore.Controllers
         public ActionResult Index(int? page)
         {
             //Create a variable that specifies the number of products per page
-            int pageSize = 3;
+            int pageSize = 6;
             //Create page variable
             int pageNum = (page ?? 1);
             //Get the top 10 best-selling albums
