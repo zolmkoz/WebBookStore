@@ -105,7 +105,7 @@ namespace WebBookStore.Controllers
                 if (kh != null)
                 {
                     ViewBag.ThongBao = "Login successful!";
-                    Session["TaiKhoan"] = kh;
+                    Session["Taikhoan"] = kh;
                     return RedirectToAction("Index", "BookStore");
                 }
                 else

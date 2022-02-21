@@ -21,7 +21,7 @@ namespace MvcBookStore.Controllers
         public ActionResult Sach(int? page)
         {
             int pageNumber = (page ?? 1);
-            int pageSize = 7;
+            int pageSize = 4;
             //return View(db.Saches.ToList());
             return View(db.Saches.ToList().OrderBy(n => n.MaSach).ToPagedList(pageNumber, pageSize));
         }
@@ -34,20 +34,18 @@ namespace MvcBookStore.Controllers
         public ActionResult Login(FormCollection collection)
         {
             dbQLBookstoreDataContext db = new dbQLBookstoreDataContext();
-            //Gan cac gia tri nguoi dung nhap lieu cho cac bien
             var user = collection["username"].ToString();
             var password = collection["password"].ToString();
             if (String.IsNullOrEmpty(user))
             {
-                ViewData["Loi1"] = "Phải nhập tên đăng nhập";
+                ViewData["Loi1"] = "Username must be entered";
             }
             else if (String.IsNullOrEmpty(password))
             {
-                ViewData["Loi2"] = "Phải nhập mật khẩu";
+                ViewData["Loi2"] = "Password must be entered";
             }
             else
             {
-                //gan giá trị cho đối tượng (ad)
                 Admin ad = db.Admins.SingleOrDefault(n => n.UserAdmin == user && n.PassAdmin == password);
                 if (ad != null)
                 {
@@ -55,15 +53,15 @@ namespace MvcBookStore.Controllers
                     return RedirectToAction("Index", "Admin");
                 }
                 else
-                    ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
+                    ViewBag.Thongbao = "Username or password is incorrect";
             }
             return View();
         }
         [HttpGet]
         public ActionResult ThemmoiSach()
         {
-            //Dua du lieu vao dropdownList
-            //Lay ds tu table chu de, sap xep tang dan theo tu chu de, chon lay gia tri Ma CD, hien thi tenchude
+            //Put data into Dropdownlist
+            //Get data from tb.ChuDe, sort by id ascending, select id value and then display name
             ViewBag.MaCD = new SelectList(db.ChuDes.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe");
             ViewBag.MaNXB = new SelectList(db.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB");
             return View();
@@ -77,7 +75,7 @@ namespace MvcBookStore.Controllers
             ViewBag.MaNXB = new SelectList(db.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB");
             if (fileupload == null)
             {
-                ViewBag.Thongbao = "Vui lòng chọn ảnh bìa";
+                ViewBag.Thongbao = "Please choose cover photo";
 
                 return View();
             }
@@ -85,12 +83,12 @@ namespace MvcBookStore.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    //lưu ý thêm thư viện using System.IO
+
                     var fileName = Path.GetFileName(fileupload.FileName);
-                    var path = Path.Combine(Server.MapPath("~/product_imgs"), fileName);
+                    var path = Path.Combine(Server.MapPath("~/product_imgs/"), fileName);
                     if (System.IO.File.Exists(path))
                     {
-                        ViewBag.Thongbao = "Hình ảnh đã tồn tại!!!";
+                        ViewBag.Thongbao = "Image already exists!!!";
 
                     }
                     else
@@ -129,30 +127,30 @@ namespace MvcBookStore.Controllers
 
             if (fileupload == null)
             {
-                ViewBag.Thongbao = "Vui lòng chọn ảnh bìa";
+                ViewBag.Thongbao = "Please choose cover photo";
                 return View();
             }
-            //thêm vào CSDL
+            //add into db
             else
             {
                 if (ModelState.IsValid)
                 {
-                    // lưu tên file , lưu ý bổ sung thư viện using system.IO
+                    //save the file name
                     var fileName = Path.GetFileName(fileupload.FileName);
-                    // lưu đường dẫn của file
-                    var path = Path.Combine(Server.MapPath("~/Content/images"), fileName);
-                    //kiểm tra hình ảnh tồn tại chưa
+                    //save the path of the file
+                    var path = Path.Combine(Server.MapPath("~/product_imgs/"), fileName);
+                    //check if the image exists
                     if (System.IO.File.Exists(path))
                     {
-                        ViewBag.Thongbao = "Hình ảnh đã tồn tại!";
+                        ViewBag.Thongbao = "Image already exists!!!";
                     }
                     else
                     {
-                        //lưu hình ảnh vào đường dẫn
+                        //Save img into the path
                         fileupload.SaveAs(path);
                     }
                     sach.AnhBia = fileName;
-                    //lưu vào CSDL
+                    //SaveDB
                     UpdateModel(sach);
                     db.SubmitChanges();
                 }

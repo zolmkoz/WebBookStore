@@ -481,7 +481,7 @@
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Sach.cshtml" />
-    <Content Include="Views\Admin\ThemmoiSach.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
     <Content Include="tinymce\js\tinymce\langs\readme.md" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />

@@ -1,64 +1,64 @@
 ﻿@model WebBookStore.Models.Sach
 
 @{
-    ViewBag.Title = "Chitietsach";
+    ViewBag.Title = "BOOK DETAILS";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-<h3>THÔNG TIN CHI TIẾT SÁCH </h3>
+<h3>BOOK DETAILS</h3>
 <div>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Tên Sách:
+            Title:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.TenSach)
         </dd>
 
         <dt>
-            Giá Bán:
+            Price:
         </dt>
         <dd>
-            @String.Format("{0:0,0}", Model.GiaBan) VNÐ
+            @String.Format("{0,0}", Model.GiaBan) $
         </dd>
 
         <dt>
-            Mô Tả:
+            Discription:
         </dt>
         <dd style=" width:600px; text-align:justify">
             @Html.DisplayFor(Model => Model.MoTa)
         </dd>
 
         <dt>
-            Ảnh Bìa:
+            Img:
         </dt>
         <dd>
-            <img src="@Url.Content("/product_imgs/"+ Model.AnhBia)" width="120px" />
+            <img src="@Url.Content("/product_imgs/"+ Model.AnhBia)" width="200px" />
         </dd>
 
         <dt>
-            Ngày Cập Nhật:
+            Update:
         </dt>
         <dd>
-            @String.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat) VNÐ
+            @String.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat) 
         </dd>
 
         <dt>
-            Số Lượng Tồn:
+            Quantity:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.SoLuongTon)
         </dd>
 
         <dt>
-            Chủ Ðề:
+            Topic:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ChuDe.TenChuDe)
         </dd>
 
         <dt>
-            Nhà Xuất Bản:
+            Publishing:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.NhaXuatBan.TenNXB)
@@ -66,6 +66,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Ðiều Chỉnh", "Suasach", new { id = Model.MaSach }) |
-    @Html.ActionLink("Trở Về", "sach")
+    @Html.ActionLink("Edit", "Suasach", new { id = Model.MaSach }) |
+    @Html.ActionLink("Return", "Sach")
 </p>

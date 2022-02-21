@@ -4,63 +4,63 @@
     ViewBag.Title = "Xoasach";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-<h2>Xác NHẬN THÔNG TIN SÁCH CẦN XÓA</h2>
-<h3>Bạn Quyết định xóa quyển sách này?</h3>
+<h2>CONFIRMATION OF BOOK INFORMATION TO DELETE</h2>
+<h4 style="color:red; font-style:italic">Did you decide to delete this book?</h4>
 
 <div>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Tên Sách:
+            Title:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.TenSach)
         </dd>
 
         <dt>
-            Giá Bán:
+            Price:
         </dt>
         <dd>
-            @String.Format("{0:0,0}", Model.GiaBan) VNÐ
+            @String.Format("{0:0,0}", Model.GiaBan) $
         </dd>
 
         <dt>
-            Mô Tả:
+           Dícription:
         </dt>
         <dd style=" width:600px; text-align:justify">
             @Html.DisplayFor(Model => Model.MoTa)
         </dd>
 
         <dt>
-            Ảnh Bìa:
+            Img:
         </dt>
         <dd>
-            <img src="@Url.Content("/product_imgs/"+ Model.AnhBia)" width="120px" />
+            <img src="@Url.Content("/product_imgs/"+ Model.AnhBia)" width="200px" />
         </dd>
 
         <dt>
-            Ngày Cập Nhật:
+            Update:
         </dt>
         <dd>
-            @String.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat) VNÐ
+            @String.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat)
         </dd>
 
         <dt>
-            Số Lượng Tồn:
+            Quantity:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.SoLuongTon)
         </dd>
 
         <dt>
-            Chủ Ðề:
+            Topic:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ChuDe.TenChuDe)
         </dd>
 
         <dt>
-            Nhà Xuất Bản:
+            Publishing:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.NhaXuatBan.TenNXB)
@@ -73,8 +73,8 @@
     {
         @Html.AntiForgeryToken()
         <div class="form-action no-colors">
-            <input type="submit" value="Xóa" class="btn btn-default" />
-            @Html.ActionLink("Trở Về", "sach")
+            <input type="submit" value="Delete" class="btn btn-default" />
+            @Html.ActionLink("Return", "sach")
         </div>
     }
 </div>

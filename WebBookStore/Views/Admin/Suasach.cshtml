@@ -1,13 +1,13 @@
 ﻿@model WebBookStore.Models.Sach
 
 @{
-    ViewBag.Title = "Suasach";
+    ViewBag.Title = "EDITBOOK";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Suasach</h2>
+<h2>EDIT BOOK</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Suasach", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <div class="form-horizontal">
@@ -15,14 +15,14 @@
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.MaSach)
         <div class="form-group">
-            @Html.LabelFor(model => model.MaSach, new { @class = "Control-label col-md-2" })
+            <label class="control-label col-md-2" for="TenSach">ID</label>
             <div class="col-md-10">
                 <div style="font:18px; padding: 5px 0 0 5px">@Model.MaSach</div>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TenSach, new { @class = "Control-label col-md-2" })
+            <label class="control-label col-md-2" for="TenSach">Title</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TenSach)
                 @Html.ValidationMessageFor(model => model.TenSach)
@@ -30,7 +30,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.GiaBan, new { @class = "Control-label col-md-2" })
+            <label class="control-label col-md-2" for="GiaBan">Price</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.GiaBan)
                 @Html.ValidationMessageFor(model => model.GiaBan)
@@ -38,23 +38,24 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MoTa, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="MoTa">Discription</label>
             <div class="col-md-10">
-                <textarea name="MoTa">Mô tả của sản phẩm</textarea>
+                @Html.EditorFor(model => model.MoTa)
+                @Html.ValidationMessageFor(model => model.MoTa)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.AnhBia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="AnhBia">Image</label>
             <div class="col-md-10">
                 <input type="file" name="fileupload" />
-                <img src="@Url.Content("/product_imgs/"+ Model.AnhBia)" width="120px" />
+                <img src="@Url.Content("/product_imgs/"+ Model.AnhBia)" width:120px />
                 @ViewBag.Thongbao
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NgayCapNhat, new { @class = "Control-label col-md-2" })
+            <label class="control-label col-md-2" for="NgayCapNhap">Update date</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NgayCapNhat)
                 @Html.ValidationMessageFor(model => model.NgayCapNhat)
@@ -62,7 +63,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SoLuongTon, new { @class = "Control-label col-md-2" })
+            <label class="control-label col-md-2" for="SoLuongTon">Quantity</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SoLuongTon)
                 @Html.ValidationMessageFor(model => model.SoLuongTon)
@@ -70,14 +71,14 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MaNXB, new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="MaNXB">Publisher</label>
             <div class="col-md-10">
                 @Html.DropDownList("MaNXB")
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MaCD, new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="MaCD">Topic</label>
             <div class="col-md-10">
                 @Html.DropDownList("MaCD")
             </div>

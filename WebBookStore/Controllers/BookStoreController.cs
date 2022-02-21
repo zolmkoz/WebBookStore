@@ -1,33 +1,27 @@
 ﻿using System;
+using System.Web;
+using WebBookStore.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using WebBookStore.Models;
+
 using PagedList;
 using PagedList.Mvc;
-
-namespace WebBookStore.Controllers
+namespace BookStore.Controllers
 {
     public class BookStoreController : Controller
     {
-        //Tạo 1 đối tượng để quản lý CSDL
         dbQLBookstoreDataContext data = new dbQLBookstoreDataContext();
         private List<Sach> Laysachmoi(int count)
         {
-            //Arrange
             return data.Saches.OrderByDescending(a => a.NgayCapNhat).Take(count).ToList();
         }
-        // GET: BookStore
         public ActionResult Index(int? page)
         {
-            //Create a variable that specifies the number of products per page
-            int pageSize = 6;
-            //Create page variable
+            int pageSize = 3;
             int pageNum = (page ?? 1);
-            //Get the top 10 best-selling albums
-            var sachmoi = Laysachmoi(5);
-            return View(sachmoi.ToPagedList(pageNum,pageSize));
+            var sachmoi = Laysachmoi(15);
+            return View(sachmoi.ToPagedList(pageNum, pageSize));
         }
         public ActionResult Chude()
         {
@@ -36,7 +30,7 @@ namespace WebBookStore.Controllers
         }
         public ActionResult Nhaxuatban()
         {
-            var nhaxuatban = from cd in data.NhaXuatBans select cd;
+            var nhaxuatban = from nxb in data.NhaXuatBans select nxb;
             return PartialView(nhaxuatban);
         }
         public ActionResult SPTheochude(int id)
@@ -54,7 +48,6 @@ namespace WebBookStore.Controllers
             var sach = from s in data.Saches where s.MaSach == id select s;
             return View(sach.Single());
         }
-
 
     }
 }

@@ -1,4 +1,4 @@
-﻿@*@model IEnumerable<WebBookStore.Models.Sach>*@
+﻿
 @using WebBookStore.Models
 @using PagedList.Mvc;
 @model PagedList.PagedList<Sach>
@@ -13,33 +13,31 @@
     {
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
-                    <a href="@Url.Action("Details", "BookStore", new {id = sach.MaSach})">
-                        <img alt="@sach.TenSach" src="~/product_imgs/@sach.AnhBia" />
-                        <span>@sach.TenSach</span>
-                    </a>
-                    <div class="ratings">
-                        <p class="pull-right">15 reviews</p>
-                        <p>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                        </p>
-                    </div>
+                <a href="@Url.Action("Details", "BookStore", new {id = sach.MaSach})">
+                    <img alt="@sach.TenSach" src="~/product_imgs/@sach.AnhBia" />
+                    <span>@sach.TenSach</span>
+                </a>
+                <div class="ratings">
+                    <p class="pull-right">15 reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                    </p>
+                </div>
             </div>
         </div>
     }
 </div>
-@*Tạo trang liên kết*@
 Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
 <div class="Menupage">
-    @Html.PagedListPager(Model,page=>Url.Action("Index", new {page=page}))
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
 </div>
 
 <style>
-    .Menupage li{
-        display:inline;
+    .Menupage li {
+        display: inline;
     }
 </style>
-
