@@ -217,33 +217,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="images\Day_Doc.jpg" />
-    <Content Include="images\giohang.gif" />
-    <Content Include="images\KH_CVHTLBT.png" />
-    <Content Include="images\KH_MVTLT.jpg" />
-    <Content Include="images\KH_NKH.jpg" />
-    <Content Include="images\KH_QLVT.JPG" />
-    <Content Include="images\KH_VT.jpg" />
-    <Content Include="images\KH_VTLT.jpg" />
-    <Content Include="images\Logo_SachHay.jpg" />
     <Content Include="images\Logo_Store.gif" />
-    <Content Include="images\Nut_DangKy.png" />
-    <Content Include="images\Nut_DangNhap.png" />
-    <Content Include="images\templatemo_ads.jpg" />
-    <Content Include="images\templatemo_bg.jpg" />
-    <Content Include="images\templatemo_btn_01.jpg" />
-    <Content Include="images\templatemo_btn_02.jpg" />
-    <Content Include="images\templatemo_footer_bg.jpg" />
-    <Content Include="images\templatemo_h1_bg.jpg" />
-    <Content Include="images\templatemo_header_bg.jpg" />
-    <Content Include="images\templatemo_header_bg1.jpg" />
-    <Content Include="images\templatemo_header_bg2.jpg" />
-    <Content Include="images\templatemo_header_bg_blank.jpg" />
-    <Content Include="images\templatemo_image_01.jpg" />
-    <Content Include="images\templatemo_image_02.jpg" />
-    <Content Include="images\templatemo_image_03.jpg" />
-    <Content Include="images\templatemo_image_04.jpg" />
-    <Content Include="images\templatemo_menu_bg.jpg" />
     <Content Include="product_imgs\Day_Doc.jpg" />
     <Content Include="product_imgs\KH_CVHTLBT.png" />
     <Content Include="product_imgs\KH_MVTLT.jpg" />
@@ -359,6 +333,7 @@
       <DependentUpon>dbQLBookstore.dbml</DependentUpon>
     </None>
     <Content Include="Scripts\.DS_Store" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
