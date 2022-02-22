@@ -103,61 +103,6 @@ namespace MvcBookStore.Controllers
             }
 
         }
-        [HttpGet]
-        public ActionResult Suasach(int id)
-        {
-            Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == id);
-
-            if (sach == null)
-            {
-                Response.StatusCode = 404;
-                return null;
-            }
-            ViewBag.MaCD = new SelectList(db.ChuDes.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChude", sach.MaCD);
-            ViewBag.MaNXB = new SelectList(db.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB", sach.MaNXB);
-
-            return View(sach);
-        }
-        [HttpPost]
-        [ValidateInput(false)]
-        public ActionResult Suasach(Sach sach, HttpPostedFileBase fileupload)
-        {
-            ViewBag.MaCD = new SelectList(db.ChuDes.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe");
-            ViewBag.MaNXB = new SelectList(db.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB");
-
-            if (fileupload == null)
-            {
-                ViewBag.Thongbao = "Please choose cover photo";
-                return View();
-            }
-            //add into db
-            else
-            {
-                if (ModelState.IsValid)
-                {
-                    //save the file name
-                    var fileName = Path.GetFileName(fileupload.FileName);
-                    //save the path of the file
-                    var path = Path.Combine(Server.MapPath("~/product_imgs/"), fileName);
-                    //check if the image exists
-                    if (System.IO.File.Exists(path))
-                    {
-                        ViewBag.Thongbao = "Image already exists!!!";
-                    }
-                    else
-                    {
-                        //Save img into the path
-                        fileupload.SaveAs(path);
-                    }
-                    sach.AnhBia = fileName;
-                    //SaveDB
-                    UpdateModel(sach);
-                    db.SubmitChanges();
-                }
-                return RedirectToAction("Sach");
-            }
-        }
-
         public ActionResult Chitietsach(int id)
         {
             Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == id);
@@ -197,6 +142,64 @@ namespace MvcBookStore.Controllers
             return RedirectToAction("Sach");
         }
 
+        [HttpGet]
+        public ActionResult Suasach(int id)
+        {
+            Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == id);
+            ViewBag.Masach = sach.MaSach;
+            if (sach == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            ViewBag.MaCD = new SelectList(db.ChuDes.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe", sach.MaCD);
+            ViewBag.MaNXB = new SelectList(db.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB", sach.MaNXB);
+            return View(sach);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Suasach(Sach sach, HttpPostedFileBase fileUpload)
+        {
+            ViewBag.MaCD = new SelectList(db.ChuDes.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe");
+            ViewBag.MaNXB = new SelectList(db.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB");
+            var s = db.Saches.SingleOrDefault(n => n.MaSach == sach.MaSach);
+
+            if (fileUpload == null)
+            {
+                ViewBag.Thongbao = "Chon anh bia";
+                return View();
+            }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    var fileName = Path.GetFileName(fileUpload.FileName);
+
+                    var path = Path.Combine(Server.MapPath("~/product_imgs"), fileName);
+                    if (System.IO.File.Exists(path))
+                    {
+                        ViewBag.Thongbao = "Anh da ton tai";
+                    }
+                    else
+                    {
+                        fileUpload.SaveAs(path);
+                    }
+
+                    s.AnhBia = fileName;
+                    s.TenSach = sach.TenSach;
+                    s.GiaBan = sach.GiaBan;
+                    s.SoLuongTon = sach.SoLuongTon;
+                    s.NgayCapNhat = sach.NgayCapNhat;
+                    s.MoTa = sach.MoTa;
+                    s.MaCD = sach.MaCD;
+                    s.MaNXB = sach.MaNXB;
+                    UpdateModel(sach);
+                    db.SubmitChanges();
+                }
+                return RedirectToAction("Sach");
+            }
+        }
 
     }
 }

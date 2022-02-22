@@ -22,10 +22,11 @@
 <h2>MANAGEMENT OF BOOK INFORMATION</h2>
 
 <p>
-    @Html.ActionLink("Create New", "ThemmoiSach")
+    @Html.ActionLink("➕ Create New", "ThemmoiSach")
 </p>
 <table class="table" border="1">
     <tr>
+        <th style="width:100px; text-align:center"> ID </th>
         <th style="width:200px; text-align:center"> Title </th>
         <th style="width:100px; text-align:center"> Price </th>
         <th style="width:300px; text-align:center"> Discription </th>
@@ -39,37 +40,40 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenSach)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GiaBan)
-            </td>
-            <td>
-                @Truncate(item.MoTa, 100)
-            </td>
-            <td>
-                <img style="max-height: 150px" src="@Url.Content("~/product_imgs/"+ item.AnhBia)" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NgayCapNhat)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SoLuongTon)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChuDe.TenChuDe)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NhaXuatBan.TenNXB)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Suasach", new { id = item.MaSach }) |
-                @Html.ActionLink("Details", "Chitietsach", new { id = item.MaSach }) |
-                @Html.ActionLink("Delete", "Xoasach", new { id = item.MaSach })
-            </td>
-        </tr>
+<tr>
+    <td style="text-align:center">
+        @Html.DisplayFor(modelItem => item.MaSach)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TenSach)
+    </td>
+    <td style="text-align:center">
+        @Html.DisplayFor(modelItem => item.GiaBan)
+    </td>
+    <td>
+        @Truncate(item.MoTa, 100)
+    </td>
+    <td>
+        <img style="max-height: 150px" src="@Url.Content("~/product_imgs/"+ item.AnhBia)" />
+    </td>
+    <td style="text-align:center">
+        @Html.DisplayFor(modelItem => item.NgayCapNhat)
+    </td>
+    <td style="text-align:center">
+        @Html.DisplayFor(modelItem => item.SoLuongTon)
+    </td>
+    <td style="text-align:center"> 
+        @Html.DisplayFor(modelItem => item.ChuDe.TenChuDe)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NhaXuatBan.TenNXB)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Suasach", new { id = item.MaSach }) |
+        @Html.ActionLink("Details", "Chitietsach", new { id = item.MaSach }) |
+        @Html.ActionLink("Delete", "Xoasach", new { id = item.MaSach })
+    </td>
+</tr>
     }
 </table>
 Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount

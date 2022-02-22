@@ -1,7 +1,7 @@
 ﻿@model WebBookStore.Models.Sach
 
 @{
-    ViewBag.Title = "Xoasach";
+    ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 <h2>CONFIRMATION OF BOOK INFORMATION TO DELETE</h2>
@@ -74,7 +74,7 @@
         @Html.AntiForgeryToken()
         <div class="form-action no-colors">
             <input type="submit" value="Delete" class="btn btn-default" />
-            @Html.ActionLink("Return", "sach")
+            @Html.ActionLink("Return", "Sach")
         </div>
     }
 </div>
