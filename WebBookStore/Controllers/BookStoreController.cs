@@ -23,22 +23,22 @@ namespace BookStore.Controllers
             var sachmoi = Laysachmoi(15);
             return View(sachmoi.ToPagedList(pageNum, pageSize));
         }
-        public ActionResult Chude()
+        public ActionResult Topic()
         {
             var chude = from cd in data.ChuDes select cd;
             return PartialView(chude);
         }
-        public ActionResult Nhaxuatban()
+        public ActionResult Publisher()
         {
             var nhaxuatban = from nxb in data.NhaXuatBans select nxb;
             return PartialView(nhaxuatban);
         }
-        public ActionResult SPTheochude(int id)
+        public ActionResult BookByTopic(int id)
         {
             var sach = from s in data.Saches where s.MaCD == id select s;
             return View(sach);
         }
-        public ActionResult SPTheoNXB(int id)
+        public ActionResult BookByPublisher(int id)
         {
             var sach = from s in data.Saches where s.MaNXB == id select s;
             return View(sach);

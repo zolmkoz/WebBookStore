@@ -7,27 +7,27 @@ using WebBookStore.Models;
 
 namespace WebBookStore.Controllers
 {
-    public class NguoidungController : Controller
+    public class CustomerController : Controller
     {
         //Create objects to manage Database
         dbQLBookstoreDataContext db = new dbQLBookstoreDataContext();
-        // GET: Nguoidung
+        // GET: Customer
         public ActionResult Index()
         {
             return View();
         }
-        // GET: Nguoidung
+        // GET: Customer
         [HttpGet]
-        public ActionResult Dangky()
+        public ActionResult Register()
         {
             return View();
         }
 
-        // POST: Nguoidung
+        // POST: Customer
         [HttpPost]
-        public ActionResult Dangky(FormCollection collection, KhachHang kh)
+        public ActionResult Register(FormCollection collection, KhachHang kh)
         {
-            //Gán giá trị vào form
+            //Assign value to form
             var fullname = collection["HotenHK"];
             var user = collection["TenDN"];
             var password = collection["MatKhau"];
@@ -38,31 +38,31 @@ namespace WebBookStore.Controllers
             var birthday = String.Format("{0:MM/dd/yyyy}", collection["NgaySinh"]);
             if(String.IsNullOrEmpty(fullname))
             {
-                ViewData["Loi1"] = "Customer's name cannot empty";
+                ViewData["Error1"] = "Customer's name cannot empty";
             }
             if (String.IsNullOrEmpty(user))
             {
-                ViewData["Loi2"] = "The account cannot be empty";
+                ViewData["Error2"] = "The account cannot be empty";
             }
             if (String.IsNullOrEmpty(password))
             {
-                ViewData["Loi3"] = "The password cannot be empty";
+                ViewData["Error3"] = "The password cannot be empty";
             }
             if (String.IsNullOrEmpty(confirmpassword))
             {
-                ViewData["Loi4"] = "The confirm password cannot be empty";
+                ViewData["Error4"] = "The confirm password cannot be empty";
             }
             if (String.IsNullOrEmpty(email))
             {
-                ViewData["Loi5"] = "The email cannot be empty";
+                ViewData["Error5"] = "The email cannot be empty";
             }
             if (String.IsNullOrEmpty(phone))
             {
-                ViewData["Loi6"] = "The phone number cannot be empty";
+                ViewData["Error6"] = "The phone number cannot be empty";
             }
             else
             {
-                //Gán giá trị vào Databese
+                //Assign value to Database
                 kh.HoTen = fullname;
                 kh.TaiKhoan = user;
                 kh.MatKhau = password;
@@ -72,35 +72,35 @@ namespace WebBookStore.Controllers
                 kh.NgaySinh = DateTime.Parse(birthday);
                 db.KhachHangs.InsertOnSubmit(kh);
                 db.SubmitChanges();
-                return RedirectToAction("Dangnhap");
+                return RedirectToAction("Login");
             }
 
-            return this.Dangky();
+            return this.Register();
         }
 
-        // Dangnhap
+        // Login
         [HttpGet]
-        public ActionResult Dangnhap()
+        public ActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Dangnhap(FormCollection collection)
+        public ActionResult Login(FormCollection collection)
         {
             var user = collection["TenDN"];
             var password = collection["MatKhau"];
             if (String.IsNullOrEmpty(user))
             {
-                ViewData["Loi1"] = "The account cannot be empty";
+                ViewData["Error1"] = "The account cannot be empty";
             }
             else if (String.IsNullOrEmpty(password))
             {
-                ViewData["Loi2"] = "The password cannot be empty";
+                ViewData["Error2"] = "The password cannot be empty";
             }
             else
             {
-                //Gán giá trị và lấy session
+                //Assign value and get session
                 KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == user && n.MatKhau == password);
                 if (kh != null)
                 {

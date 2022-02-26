@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<WebBookStore.Models.NhaXuatBan>
-<p class="lead">PUBLISHING COMPANY</p>
+<p class="lead">BOOK BY PUBLISHER</p>
 <div class="list-group">
     @foreach (var item in Model)
     {
-        <a href="@Url.Action("SPTheoNXB", "BookStore", new { id = item.MaNXB})" class="list-group-item">
+        <a href="@Url.Action("BookByPublisher", "BookStore", new { id = item.MaNXB})" class="list-group-item">
             @item.TenNXB
         </a>
     }

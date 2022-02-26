@@ -183,7 +183,7 @@
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\NguoidungController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -219,6 +219,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\cart.gif" />
+    <Content Include="images\cover.jpg" />
+    <Content Include="images\cover2.jpg" />
+    <Content Include="images\cover3.jpg" />
+    <Content Include="images\FPT_BOOK.png" />
     <Content Include="images\Logo_Store.gif" />
     <Content Include="product_imgs\1.jpg" />
     <Content Include="product_imgs\10.jpg" />
@@ -372,15 +377,15 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\BookStore\Index.cshtml" />
-    <Content Include="Views\BookStore\Chude.cshtml" />
-    <Content Include="Views\BookStore\Nhaxuatban.cshtml" />
-    <Content Include="Views\BookStore\SPTheochude.cshtml" />
-    <Content Include="Views\BookStore\SPTheoNXB.cshtml" />
+    <Content Include="Views\BookStore\Topic.cshtml" />
+    <Content Include="Views\BookStore\Publisher.cshtml" />
+    <Content Include="Views\BookStore\BookByTopic.cshtml" />
+    <Content Include="Views\BookStore\BookByPublisher.cshtml" />
     <Content Include="Views\BookStore\Details.cshtml" />
-    <Content Include="Views\Nguoidung\Dangky.cshtml" />
-    <Content Include="Views\Nguoidung\Dangnhap.cshtml" />
+    <Content Include="Views\Customer\Register.cshtml" />
+    <Content Include="Views\Customer\Login.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
-    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\GioHang\GiohangPartial.cshtml" />
     <Content Include="Views\GioHang\DatHang.cshtml" />
     <Content Include="Views\GioHang\Xacnhandonhang.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />

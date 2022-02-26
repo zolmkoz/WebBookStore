@@ -3,7 +3,7 @@
 <div class="list-group">
     @foreach (var item in Model)
     {
-    <a href="@Url.Action("SPTheochude", "BookStore", new { id = item.MaCD})" class="list-group-item">      
+    <a href="@Url.Action("BookByTopic", "BookStore", new { id = item.MaCD})" class="list-group-item">      
         @item.TenChuDe
     </a>
     }

@@ -135,7 +135,7 @@ namespace WebBookStore.Controllers
             //Check login
             if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
             {
-                return RedirectToAction("Dangnhap", "Nguoidung");
+                return RedirectToAction("Login", "Customer");
             }
             if (Session["GioHang"] == null)
             {
