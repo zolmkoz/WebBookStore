@@ -17,7 +17,6 @@ The system includes the following basic functions:
 ## 💚 Sincere thanks
 <ul>
         <li>ChiArt</li>
-        <li>TinyMCE</li>
         <li>https://www.free-css.com/</li>
         <li>Luong Hoang Huong</li>
         
