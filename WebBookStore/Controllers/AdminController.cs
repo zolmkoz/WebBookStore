@@ -201,5 +201,16 @@ namespace MvcBookStore.Controllers
             }
         }
 
+        public ActionResult Topic()
+        {
+            return View(db.ChuDes.ToList());
+        }
+
+        [HttpGet]
+        public ActionResult CreateTopic()
+        {
+            return View();
+        }
+
     }
 }
