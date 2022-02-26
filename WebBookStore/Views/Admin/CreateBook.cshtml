@@ -1,47 +1,41 @@
 ﻿@model WebBookStore.Models.Sach
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>EDIT BOOK</h2>
+<h2>Create new book</h2>
 
-@using (Html.BeginForm("Suasach", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+@using (Html.BeginForm("CreateBook", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
+
     <div class="form-horizontal">
         <hr />
-        @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.MaSach)
-        <div class="form-group">
-            <label class="control-label col-md-2" for="TenSach">ID</label>
-            <div class="col-md-10">
-                <div style="font:18px; padding: 5px 0 0 5px">@Model.MaSach</div>
-            </div>
-        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
             <label class="control-label col-md-2" for="TenSach">Title</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TenSach)
-                @Html.ValidationMessageFor(model => model.TenSach)
+                @Html.EditorFor(model => model.TenSach, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenSach, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2" for="GiaBan">Price</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.GiaBan)
-                @Html.ValidationMessageFor(model => model.GiaBan)
+                @Html.EditorFor(model => model.GiaBan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GiaBan, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2" for="MoTa">Discription</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MoTa)
-                @Html.ValidationMessageFor(model => model.MoTa)
+                @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -49,24 +43,23 @@
             <label class="control-label col-md-2" for="AnhBia">Image</label>
             <div class="col-md-10">
                 <input type="file" name="fileupload" />
-                <img src="@Url.Content("/product_imgs/"+ Model.AnhBia)" width:120px />
                 @ViewBag.Thongbao
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="NgayCapNhap">Update date</label>
+            <label class="control-label col-md-2" for="NgayCapNhap">Date</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NgayCapNhat)
-                @Html.ValidationMessageFor(model => model.NgayCapNhat)
+                <input type="date" name="Ngaycapnhat" />
+                @Html.ValidationMessageFor(model => model.NgayCapNhat, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2" for="SoLuongTon">Quantity</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SoLuongTon)
-                @Html.ValidationMessageFor(model => model.SoLuongTon)
+                @Html.EditorFor(model => model.SoLuongTon, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoLuongTon, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -78,7 +71,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="MaCD">Topic</label>
+            <label class="control-label col-md-2" for="MaCd">Topic</label>
             <div class="col-md-10">
                 @Html.DropDownList("MaCD")
             </div>
@@ -86,13 +79,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="Submit" value="Create" class="btn btn-default">
             </div>
         </div>
     </div>
-
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Sach")
+    @Html.ActionLink("Return List Manager", "Book")
 </div>

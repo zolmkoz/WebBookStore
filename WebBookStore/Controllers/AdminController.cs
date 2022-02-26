@@ -18,7 +18,7 @@ namespace MvcBookStore.Controllers
         {
             return View();
         }
-        public ActionResult Sach(int? page)
+        public ActionResult Book(int? page)
         {
             int pageNumber = (page ?? 1);
             int pageSize = 4;
@@ -58,7 +58,7 @@ namespace MvcBookStore.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult ThemmoiSach()
+        public ActionResult CreateBook()
         {
             //Put data into Dropdownlist
             //Get data from tb.ChuDe, sort by id ascending, select id value and then display name
@@ -69,7 +69,7 @@ namespace MvcBookStore.Controllers
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult ThemmoiSach(Sach sach, HttpPostedFileBase fileupload)
+        public ActionResult CreateBook(Sach sach, HttpPostedFileBase fileupload)
         {
             ViewBag.MaCD = new SelectList(db.ChuDes.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe");
             ViewBag.MaNXB = new SelectList(db.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB");
@@ -99,11 +99,11 @@ namespace MvcBookStore.Controllers
                     db.Saches.InsertOnSubmit(sach);
                     db.SubmitChanges();
                 }
-                return RedirectToAction("Sach");
+                return RedirectToAction("Book");
             }
 
         }
-        public ActionResult Chitietsach(int id)
+        public ActionResult DetailBook(int id)
         {
             Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == id);
 
@@ -116,7 +116,7 @@ namespace MvcBookStore.Controllers
             return View(sach);
         }
         [HttpGet]
-        public ActionResult Xoasach(int id)
+        public ActionResult DeleteBook(int id)
         {
             Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == id);
             ViewBag.Masach = sach.MaSach;
@@ -127,8 +127,8 @@ namespace MvcBookStore.Controllers
             }
             return View(sach);
         }
-        [HttpPost, ActionName("XoaSach")]
-        public ActionResult Xacnhanxoa(int id)
+        [HttpPost, ActionName("DeleteBook")]
+        public ActionResult ConfirmDeleteBook(int id)
         {
             Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == id);
             ViewBag.Masach = sach.MaSach;
@@ -139,11 +139,11 @@ namespace MvcBookStore.Controllers
             }
             db.Saches.DeleteOnSubmit(sach);
             db.SubmitChanges();
-            return RedirectToAction("Sach");
+            return RedirectToAction("Book");
         }
 
         [HttpGet]
-        public ActionResult Suasach(int id)
+        public ActionResult EditBook(int id)
         {
             Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == id);
             ViewBag.Masach = sach.MaSach;
@@ -159,7 +159,7 @@ namespace MvcBookStore.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Suasach(Sach sach, HttpPostedFileBase fileUpload)
+        public ActionResult EditBook(Sach sach, HttpPostedFileBase fileUpload)
         {
             ViewBag.MaCD = new SelectList(db.ChuDes.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe");
             ViewBag.MaNXB = new SelectList(db.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB");
@@ -167,7 +167,7 @@ namespace MvcBookStore.Controllers
 
             if (fileUpload == null)
             {
-                ViewBag.Thongbao = "Chon anh bia";
+                ViewBag.Thongbao = "Please choose cover photo";
                 return View();
             }
             else
@@ -179,7 +179,7 @@ namespace MvcBookStore.Controllers
                     var path = Path.Combine(Server.MapPath("~/product_imgs"), fileName);
                     if (System.IO.File.Exists(path))
                     {
-                        ViewBag.Thongbao = "Anh da ton tai";
+                        ViewBag.Thongbao = "Image already exists!!!";
                     }
                     else
                     {
@@ -197,7 +197,7 @@ namespace MvcBookStore.Controllers
                     UpdateModel(sach);
                     db.SubmitChanges();
                 }
-                return RedirectToAction("Sach");
+                return RedirectToAction("Book");
             }
         }
 

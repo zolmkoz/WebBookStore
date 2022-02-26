@@ -1,12 +1,10 @@
 ﻿@model WebBookStore.Models.Sach
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-<h2>CONFIRMATION OF BOOK INFORMATION TO DELETE</h2>
-<h4 style="color:red; font-style:italic">Did you decide to delete this book?</h4>
-
+<h3>BOOK DETAILS</h3>
 <div>
     <hr />
     <dl class="dl-horizontal">
@@ -16,49 +14,49 @@
         <dd>
             @Html.DisplayFor(model => model.TenSach)
         </dd>
-
+        <br>
         <dt>
             Price:
         </dt>
         <dd>
-            @String.Format("{0:0,0}", Model.GiaBan) $
+            @String.Format("{0,0}", Model.GiaBan) $
         </dd>
-
+        <br>
         <dt>
-           Dícription:
+            Discription:
         </dt>
         <dd style=" width:600px; text-align:justify">
             @Html.DisplayFor(Model => Model.MoTa)
         </dd>
-
+        <br>
         <dt>
-            Image:
+            Img:
         </dt>
         <dd>
             <img src="@Url.Content("/product_imgs/"+ Model.AnhBia)" width="200px" />
         </dd>
-
+        <br>
         <dt>
             Update:
         </dt>
         <dd>
             @String.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat)
         </dd>
-
+        <br>
         <dt>
             Quantity:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.SoLuongTon)
         </dd>
-
+        <br>
         <dt>
             Topic:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ChuDe.TenChuDe)
         </dd>
-
+        <br>
         <dt>
             Publishing:
         </dt>
@@ -67,14 +65,7 @@
         </dd>
     </dl>
 </div>
-
-<div>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        <div class="form-action no-colors" style="text-align:center">
-            <input type="submit" style="color:red" value="Delete" class="btn btn-default" />
-            @Html.ActionLink("Return", "Sach")
-        </div>
-    }
-</div>
+<p>
+    @Html.ActionLink("Edit", "EditBook", new { id = Model.MaSach }) |
+    @Html.ActionLink("Return", "Book")
+</p>

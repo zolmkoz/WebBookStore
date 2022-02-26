@@ -22,7 +22,7 @@
 <h2>MANAGEMENT OF BOOK INFORMATION</h2>
 
 <p>
-    @Html.ActionLink("➕ Create New", "ThemmoiSach")
+    @Html.ActionLink("➕ Create New", "CreateBook")
 </p>
 <table class="table" border="1">
     <tr>
@@ -69,16 +69,16 @@
         @Html.DisplayFor(modelItem => item.NhaXuatBan.TenNXB)
     </td>
     <td>
-        @Html.ActionLink("Edit", "Suasach", new { id = item.MaSach }) |
-        @Html.ActionLink("Details", "Chitietsach", new { id = item.MaSach }) |
-        @Html.ActionLink("Delete", "Xoasach", new { id = item.MaSach })
+        @Html.ActionLink("Edit", "EditBook", new { id = item.MaSach }) |
+        @Html.ActionLink("Details", "DetailBook", new { id = item.MaSach }) |
+        @Html.ActionLink("Delete", "DeleteBook", new { id = item.MaSach })
     </td>
 </tr>
     }
 </table>
 Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
 <div class="Menupage">
-    @Html.PagedListPager(Model, page => Url.Action("Sach", new { page = page }))
+    @Html.PagedListPager(Model, page => Url.Action("Book", new { page = page }))
 </div>
 
 <style>

@@ -1,10 +1,12 @@
 ﻿@model WebBookStore.Models.Sach
 
 @{
-    ViewBag.Title = "Detail";
+    ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-<h3>BOOK DETAILS</h3>
+<h2>CONFIRMATION OF BOOK INFORMATION TO DELETE</h2>
+<h4 style="color:red; font-style:italic">Did you decide to delete this book?</h4>
+
 <div>
     <hr />
     <dl class="dl-horizontal">
@@ -19,18 +21,18 @@
             Price:
         </dt>
         <dd>
-            @String.Format("{0,0}", Model.GiaBan) $
+            @String.Format("{0:0,0}", Model.GiaBan) $
         </dd>
 
         <dt>
-            Discription:
+           Dícription:
         </dt>
         <dd style=" width:600px; text-align:justify">
             @Html.DisplayFor(Model => Model.MoTa)
         </dd>
 
         <dt>
-            Img:
+            Image:
         </dt>
         <dd>
             <img src="@Url.Content("/product_imgs/"+ Model.AnhBia)" width="200px" />
@@ -40,7 +42,7 @@
             Update:
         </dt>
         <dd>
-            @String.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat) 
+            @String.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat)
         </dd>
 
         <dt>
@@ -65,7 +67,14 @@
         </dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Suasach", new { id = Model.MaSach }) |
-    @Html.ActionLink("Return", "Sach")
-</p>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-action no-colors" style="text-align:center">
+            <input type="submit" style="color:red" value="Delete" class="btn btn-default" />
+            @Html.ActionLink("Return", "Book")
+        </div>
+    }
+</div>
