@@ -212,5 +212,46 @@ namespace MvcBookStore.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult EditTopic(int id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult EditTopic(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here  
+                db.SubmitChanges();
+                return RedirectToAction("Topic");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public ActionResult DeleteTopic(int id)
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult DeleteTopic(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here  
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

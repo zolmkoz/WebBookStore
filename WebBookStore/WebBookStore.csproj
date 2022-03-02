@@ -400,6 +400,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Admin\Topic.cshtml" />
     <Content Include="Views\Admin\CreateTopic.cshtml" />
+    <Content Include="Views\Admin\EditTopic.cshtml" />
+    <Content Include="Views\Admin\DeleteTopic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
