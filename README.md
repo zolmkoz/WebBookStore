@@ -8,7 +8,8 @@ The system includes the following basic functions:
         <li>Login</li>
         <li>Register</li>
         <li>Admin Login</li>
-        <li>CRUD</li>
+        <li>Admin Report</li>
+        <li>CRUD Topic, Books</li>
         <li>Book Details</li>
         <li>Shopping Cart</li>
         <li>...</li>
@@ -18,6 +19,7 @@ The system includes the following basic functions:
 ## 💚 Sincere thanks
 <ul>
         <li>ChiArt</li>
+        <li>tinymce</li>
         <li>https://www.free-css.com/</li>
         <li>Luong Hoang Huong</li>
         
