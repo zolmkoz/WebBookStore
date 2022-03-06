@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WebBookStore.Models.DonDatHang>
+
+@{
+    ViewBag.Title = "Order Report";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Order report</h2>
+
+<table class="table">
+    <tr>
+        <th style="width: 1px; text-align:left"> Order ID </th>
+        <th style="width: 1px; text-align:left"> Customer ID </th>
+        <th style="width: 10px; text-align: left"> Order date </th>
+        <th style="width: 10px; text-align: left"> Delivery date </th>
+        <th style="width: 50px; text-align: left"> Paid </th>
+        <th style="width: 50px; text-align: left"> Status </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.SoDH)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaKH)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NgayDH)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NgayGiao)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DaThanhToan)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TinhTrangGiaoHang)
+    </td>
+</tr>
+}
+
+</table>

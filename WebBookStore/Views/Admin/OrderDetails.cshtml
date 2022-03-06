@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebBookStore.Models.ChiTietDatHang>
+
+@{
+    ViewBag.Title = "Order Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Order Details</h2>
+
+<table class="table">
+    <tr>
+        <th style="width: 1px; text-align: left"> Order ID </th>
+        <th style="width: 1px; text-align: left"> Book ID </th>
+        <th style="width: 1px; text-align: left"> Quantity </th>
+        <th style="width: 120px; text-align: left; color: red"> Price </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoDH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaSach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td style="font-weight: bold;">
+                @Html.DisplayFor(modelItem => item.DonGia)
+            </td>
+        </tr>
+    }
+
+</table>
