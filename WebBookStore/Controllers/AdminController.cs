@@ -253,5 +253,13 @@ namespace MvcBookStore.Controllers
                 return View();
             }
         }
+        public ActionResult OrderDetails()
+        {
+            return View(db.ChiTietDatHangs.ToList());
+        }
+        public ActionResult OrderReport()
+        {
+            return View(db.DonDatHangs.ToList());
+        }
     }
 }
