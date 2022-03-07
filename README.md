@@ -31,7 +31,7 @@ The system includes the following basic functions:
         <li>ChiArt</li>
         <li>tinymce</li>
         <li>https://www.free-css.com/</li>
-        <li>Luong Hoang Huong</li>
+        <li>Lecturer: Luong Hoang Huong</li>
         
 </ul>
   
