@@ -9,13 +9,13 @@ namespace WebBookStore.Controllers
 {
     public class GioHangController : Controller
     {
-        //Tạo 1 đối tượng để quản lý CSDL
+        //Create an object to manage the database
         dbQLBookstoreDataContext data = new dbQLBookstoreDataContext();
-        // GET: Giohang
+        // GET: Cart
         public List<Giohang> LayGioHang()
         {
             List<Giohang> lstGiohang = Session["GioHang"] as List<Giohang>;
-            //Nếu tồn tại, gán vào Cart
+            //If exists, assign to Cart
             if (lstGiohang == null)
             {
                 lstGiohang = new List<Giohang>();
