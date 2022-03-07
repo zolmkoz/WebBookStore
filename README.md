@@ -16,7 +16,7 @@ The system includes the following basic functions:
         <li>...</li>
 </ul>
 
-## 🤝 Contributing
+## 💚 Sincere thanks to
 
 <ul>
         <li>ChiArt</li>
