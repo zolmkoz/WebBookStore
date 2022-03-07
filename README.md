@@ -2,6 +2,15 @@
 
 E-commerce web application specializing in selling books of FPTBooks bookstore system
 <br>
+
+## 🛰 Sitemap
+
+
+![alt text](WebBookStore/images/Sitemap.drawio.png)
+
+## ➕ Functions
+
+
 The system includes the following basic functions:
 <br>
 <ul>
