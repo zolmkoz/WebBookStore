@@ -236,6 +236,7 @@
     <Content Include="images\FPT_BOOK.png" />
     <Content Include="images\images.png" />
     <Content Include="images\Logo_Store.gif" />
+    <Content Include="images\Sitemap.drawio.png" />
     <Content Include="product_imgs\1.jpg" />
     <Content Include="product_imgs\10.jpg" />
     <Content Include="product_imgs\111.jpg" />
