@@ -50,7 +50,7 @@
                 Email:
             </td>
             <td>
-                @Html.TextBox("Email")
+                <input type="email" data-val="true" data-val-email="Please enter a valid email" id="Email" name="Email" value="" />
                 @ViewData["Error5"]
             </td>
         </tr>
