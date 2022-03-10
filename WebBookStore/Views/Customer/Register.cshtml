@@ -25,7 +25,8 @@
         const confirm = document.querySelector('input[name=Matkhaunhaplai]');
         if (confirm.value === password.value) {
             confirm.setCustomValidity('');
-        } else {
+        }
+        else {
             confirm.setCustomValidity('Passwords do not match');
         }
     }
@@ -44,7 +45,7 @@
                 Fullname:
             </td>
             <td>
-                @Html.TextBox("HotenHK")
+                <input name="HotenHK" placeholder="Nguyen Van A" type="text" required />
                 @ViewData["Error1"]
             </td>
         </tr>
@@ -53,7 +54,7 @@
                 User:
             </td>
             <td>
-                @Html.TextBox("TenDN")
+                <input name="TenDN" placeholder="e.g: nguyendeptrai" type="text" required />
                 @ViewData["Error2"]
             </td>
         </tr>
@@ -62,7 +63,7 @@
                 Password:
             </td>
             <td>
-                <input name="Matkhau" type="password" onChange="onChange()" />
+                <input name="Matkhau" type="password" onChange="onChange()" required />
                 @ViewData["Error3"]
             </td>
         </tr>
@@ -71,7 +72,7 @@
                 Confirm Password:
             </td>
             <td>
-                <input name="Matkhaunhaplai" type="password" onChange="onChange()" />
+                <input name="Matkhaunhaplai" type="password" placeholder="Retype password" onChange="onChange()" required />
                 @ViewData["Error4"]
             </td>
         </tr>
@@ -80,7 +81,7 @@
                 Email:
             </td>
             <td>
-                <input type="email" name="Email">
+                <input type="email" name="Email" placeholder="abc@xyz.org" pattern="^[a-zA-Z0-9._+-]+@("@")[a-zA-Z0-9.-]+\.[a-zA-Z]{2,9}$" required>
                 @ViewData["Error5"]
             </td>
         </tr>
@@ -89,7 +90,7 @@
                 Phone:
             </td>
             <td>
-                <input type="tel" name="Dienthoai" placeholder="" pattern="^(0[123456789][0-9]{8}|1[89]00[0-9]{4})$" required />
+                <input type="tel" name="Dienthoai" placeholder="0123****789" pattern="^(0[123456789][0-9]{8}|1[89]00[0-9]{4})$" required />
                 @ViewData["Error6"]
             </td>
         </tr>
@@ -98,8 +99,7 @@
                 Address:
             </td>
             <td>
-                @Html.TextBox("Diachi")
-                @ViewData["Error7"]
+                <input name="Diachi" type="text" required />
             </td>
         </tr>
         <tr style="height:40px">
@@ -107,7 +107,7 @@
                 Birthday:
             </td>
             <td>
-                <input type="date" name="Ngaysinh" min="1800-01-01" max="2050-12-31" required />
+                <input type="date" name="Ngaysinh" min="1930-01-01" max="2050-12-31" required />
             </td>
         </tr>
         <tr style="height:40px">
