@@ -18,30 +18,28 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="TenSach">Title</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TenSach, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TenSach, "", new { @class = "text-danger" })
+                <input type="text" name="TenSach" required />
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2" for="GiaBan">Price</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.GiaBan, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GiaBan, "", new { @class = "text-danger" })
+                <input type="number" name="GiaBan" min="1" max="1000" required />
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2" for="MoTa">Discription</label>
             <div class="col-md-10">
-                <textarea name="MoTa"></textarea>
+                <textarea name="MoTa">Discription here.....</textarea>
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2" for="AnhBia">Image</label>
             <div class="col-md-10">
-                <input type="file" name="fileupload" />
+                <input type="file" name="fileupload" accept=".png,.jpeg,.jpg" required />
                 @ViewBag.Thongbao
             </div>
         </div>
@@ -49,16 +47,14 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="NgayCapNhap">Date</label>
             <div class="col-md-10">
-                <input type="date" name="Ngaycapnhat" />
-                @Html.ValidationMessageFor(model => model.NgayCapNhat, "", new { @class = "text-danger" })
+                <input type="date" name="Ngaycapnhat" required/>
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2" for="SoLuongTon">Quantity</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SoLuongTon, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SoLuongTon, "", new { @class = "text-danger" })
+                <input type="number" name="SoLuongTon" min="1" max="100" required />
             </div>
         </div>
 
@@ -78,7 +74,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="Submit" value="Create" class="btn btn-default">
+                <input type="submit" value="Create" class="btn btn-default">
             </div>
         </div>
     </div>
