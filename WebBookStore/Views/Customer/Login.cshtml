@@ -8,7 +8,7 @@
     <h2 align="center">LOGIN</h2>
     @using (Html.BeginForm())
     {
-        @Html.ValidationSummary(true)       
+        @Html.ValidationSummary(true)
         <tr style="height:40px">
             <td>
                 User:
@@ -26,7 +26,12 @@
                 @Html.Password("Matkhau")
                 @ViewData["Error1"]
             </td>
-        </tr>       
+        </tr>
+        <tr style="height:1px">
+            <td>
+            </td>
+            <td>@Html.ActionLink("For Administrators", "Login", "Admin")</td>
+        </tr>
         <tr style="height:40px">
             <td>
             </td>
@@ -34,7 +39,7 @@
                 <input type="submit" value="Login" />
             </td>
         </tr>
-    }
 
+    }
 </table>
 

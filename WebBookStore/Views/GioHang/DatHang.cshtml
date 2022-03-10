@@ -26,14 +26,14 @@
                  <td>
                         @item.iSoLuong
                  </td>
-                 <td>@String.Format("{0:0,0}", item.dDonGia)</td>
-                 <td>@String.Format("{0:0,0}", item.dThanhTien)</td>
+                 <td>@String.Format("{0}", item.dDonGia)</td>
+                 <td>@String.Format("{0}", item.dThanhTien)</td>
             }
         </tr>
     }
     <tr style="text-align:right; font-weight:bold; color:red" >
          <td colspan="3"> Quantity: @ViewBag.Tongsoluong</td>
-         <td colspan="3"> Total : @String.Format("{0:0,0}", ViewBag.Tongtien) USD</td>
+         <td colspan="3"> Total : @String.Format("{0}", ViewBag.Tongtien) USD</td>
     </tr>
     <tr style="text-align:right; font-weight:bold; color:blue" >
          <td colspan="6">
@@ -56,7 +56,8 @@
         </tr>
         <tr style="height:40px">
             <td> Address: </td>
-            <td style="font-weight:bold"> @kh.DiachiKH </td>
+            <td style="font-weight:bold"> <input type="text" name="DiachiKH"> </td>
+
         </tr>
         <tr style="height:40px">
             <td> Phone: </td>
@@ -69,11 +70,22 @@
         <tr style="height:40px">
             <td> Delivery date: </td>
             <td style="font-weight:bold">
-                <input type="date" name="NgayGiao" />
+                <input type="date" name="NgayGiao" min="2022-03-11" max="2050-12-31" required />
             </td>
         </tr>
+        <tr style="height: 1px; color: red; font-family: 'Courier New'; font-size: 80%; font-style:italic ">
+            <td>
+                
+            </td>
+            <td>
+                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <label for="vehicle3"> I confirm to agree with the order policy</label>
+            </td>
+
+        </tr>
         <tr style="height:40px">
-            <td></td>
+            <td>
+            </td>
             <td>
                 <input type="submit" value="AGREE ORDER" />
             </td>

@@ -27,10 +27,10 @@
             @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { @iMaSP = item.iMaSach }))
             {
                 <td>
-                    <input type="number" min="1" max="50" name="txtSoluong" value="@item.iSoLuong" style="background-color: #F0FFFF" />
+                    <input type="number" min="1" max="10" name="txtSoluong" value="@item.iSoLuong" style="background-color: #F0FFFF" />
                 </td>
-                <td>@String.Format("{0:0,0}", item.dDonGia) $</td>
-                <td>@String.Format("{0:0,0}", item.dThanhTien) $</td>
+                <td>@String.Format("{0}", item.dDonGia) $</td>
+                <td>@String.Format("{0}", item.dThanhTien) $</td>
                 <td> <a href="@Url.Action("Details", "BookStore", new { id = item.iMaSach })">📑 Details</a></td>
                 <td> @Html.ActionLink("🗑 Remove", "XoaGiohang", new { @iMaSP = item.iMaSach })</td>
                 <td><input type="submit" value="Update" /></td>
@@ -41,7 +41,7 @@
 
     <tr style="text-align: right; font-weight: bold; color: #006400 ">
         <td colspan="4">Total quantily: @ViewBag.Tongsoluong </td>
-        <td colspan="6">Total price: @String.Format("{0:0,0}", ViewBag.Tongtien) USD</td>
+        <td colspan="6">Total price: @String.Format("{0}", ViewBag.Tongtien) USD</td>
     </tr>
     <tr style="font-weight: bold; color:blue; text-align:right">
         <td colspan="10">
