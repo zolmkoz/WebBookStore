@@ -3,6 +3,36 @@
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
+<script>
+
+    $(function () {
+        $("#myform").validate(
+            {
+                rules:
+                {
+                    email:
+                    {
+                        required: true,
+                        email: true
+                    }
+                }
+            });
+    });
+
+
+    function onChange() {
+        const password = document.querySelector('input[name=Matkhau]');
+        const confirm = document.querySelector('input[name=Matkhaunhaplai]');
+        if (confirm.value === password.value) {
+            confirm.setCustomValidity('');
+        } else {
+            confirm.setCustomValidity('Passwords do not match');
+        }
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+
 
 <table align="center">
     <h2 align="center">REGISTER MEMBER</h2>
@@ -32,7 +62,7 @@
                 Password:
             </td>
             <td>
-                @Html.Password("Matkhau")
+                <input name="Matkhau" type="password" onChange="onChange()" />
                 @ViewData["Error3"]
             </td>
         </tr>
@@ -41,7 +71,7 @@
                 Confirm Password:
             </td>
             <td>
-                @Html.Password("Matkhaunhaplai")
+                <input name="Matkhaunhaplai" type="password" onChange="onChange()" />
                 @ViewData["Error4"]
             </td>
         </tr>
@@ -50,7 +80,7 @@
                 Email:
             </td>
             <td>
-                <input type="email" data-val="true" data-val-email="Please enter a valid email" id="Email" name="Email" value="" />
+                <input type="email" name="Email">
                 @ViewData["Error5"]
             </td>
         </tr>
@@ -59,7 +89,7 @@
                 Phone:
             </td>
             <td>
-                @Html.TextBox("Dienthoai")
+                <input type="tel" name="Dienthoai" placeholder="" pattern="^(0[123456789][0-9]{8}|1[89]00[0-9]{4})$" required />
                 @ViewData["Error6"]
             </td>
         </tr>
@@ -77,14 +107,14 @@
                 Birthday:
             </td>
             <td>
-                <input type="date" name="Ngaysinh" />
+                <input type="date" name="Ngaysinh" min="1800-01-01" max="2050-12-31" required />
             </td>
         </tr>
         <tr style="height:40px">
             <td>
             </td>
             <td>
-                <input type="submit" value="Register" />
+                <input type="submit" />
             </td>
         </tr>
     }
