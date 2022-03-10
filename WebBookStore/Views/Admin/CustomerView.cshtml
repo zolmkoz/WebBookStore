@@ -1,0 +1,64 @@
+﻿@using WebBookStore.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<WebBookStore.Models.KhachHang>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+
+@{
+    ViewBag.Title = "CustomerView";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Customer Details</h2>
+
+
+<table class="table" border="5">
+    <tr style="color:red">
+        <th style="width: 300px; text-align:left"> Fullname </th>
+        <th style="width: 200px; text-align: left"> User </th>
+        <th style="width: 100px; text-align: left"> Email </th>
+        <th style="width: 300px; text-align:center"> Address </th>
+        <th style="width: 150px; text-align: left"> Phone </th>
+        <th style="width: 100px; text-align: left"> Birthday </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaiKhoan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiachiKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DienThoaiKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySinh)
+            </td>
+        </tr>
+    }
+
+</table>
+Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+<div class="Menupage">
+    @Html.PagedListPager(Model, page => Url.Action("CustomerView", new { page = page }))
+</div>

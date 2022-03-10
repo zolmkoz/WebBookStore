@@ -261,5 +261,11 @@ namespace MvcBookStore.Controllers
         {
             return View(db.DonDatHangs.ToList());
         }
+        public ActionResult CustomerView(int? page)
+        {
+            int pageNumber = (page ?? 1);
+            int pageSize = 6;
+            return View(db.KhachHangs.ToList().OrderBy(n => n.MaKH).ToPagedList(pageNumber, pageSize));
+        }
     }
 }
