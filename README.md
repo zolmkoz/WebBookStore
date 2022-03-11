@@ -21,7 +21,7 @@ The system includes the following basic functions:
         <li>CRUD Topic, Books</li>
         <li>Book Details</li>
         <li>Shopping Cart</li>
-        <li>...</li>
+        <li>Customer Detail</li>
         <li>...</li>
 </ul>
 
