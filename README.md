@@ -23,6 +23,7 @@ The system includes the following basic functions:
         <li>Shopping Cart</li>
         <li>Customer Detail</li>
         <li>...</li>
+        <li>...</li>
 </ul>
 
 ## 💚 Sincere thanks to
