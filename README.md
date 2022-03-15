@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to FPTBook  👋</h1>
 
-E-commerce web application specializing in selling books of FPTBooks bookstore system
+E-commerce web application specialized in selling books of FPTBooks bookstore system. Project work is still on the learning level, created by students. Incomplete.
 <br>
 
 ## 🛰 Sitemap
@@ -22,6 +22,7 @@ The system includes the following basic functions:
         <li>Book Details</li>
         <li>Shopping Cart</li>
         <li>Customer Detail</li>
+        <li>...</li>
         <li>...</li>
 </ul>
 
