@@ -39,7 +39,7 @@ namespace WebBookStore.Controllers
             if(String.IsNullOrEmpty(fullname))
             {
                 ViewData["Error1"] = "Customer's name cannot empty";
-            }
+            }   
             if (String.IsNullOrEmpty(user))
             {
                 ViewData["Error2"] = "The account cannot be empty";
@@ -60,6 +60,11 @@ namespace WebBookStore.Controllers
             {
                 ViewData["Error6"] = "The phone number cannot be empty";
             }
+            if (String.IsNullOrEmpty(address))
+            {
+                ViewData["Error7"] = "The address cannot be empty";
+            }
+            
             else
             {
                 //Assign value to Database

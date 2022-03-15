@@ -469,7 +469,6 @@
     <Content Include="Views\BookStore\BookByTopic.cshtml" />
     <Content Include="Views\BookStore\BookByPublisher.cshtml" />
     <Content Include="Views\BookStore\Details.cshtml" />
-    <Content Include="Views\Customer\Register.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
     <Content Include="Views\GioHang\GiohangPartial.cshtml" />
     <Content Include="Views\GioHang\DatHang.cshtml" />
@@ -500,6 +499,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Customer\Login.cshtml" />
     <Content Include="Views\Admin\CustomerView.cshtml" />
+    <Content Include="Views\Customer\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
